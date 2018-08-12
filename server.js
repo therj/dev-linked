@@ -10,6 +10,12 @@ const db = require('./config/keys').mongoURI
 // Create App
 const app = express()
 
+// Body parser middleware
+app.use(express.json());
+app.use(express.urlencoded({
+  extended: false
+}));
+
 // Connect to MongoDB
 mongoose
   .connect(db, {
